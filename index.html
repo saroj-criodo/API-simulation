@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Simulation</title>
+</head>
+<body>
+    <h1>API Response Simulation</h1>
+    <button id="apiRequestBtn">Make API Request</button>
+    <div id="apiResponse"></div>
+
+    <script>
+document.getElementById('apiRequestBtn').addEventListener('click', () => {
+    const isSuccess = Math.random() < 0.5; // 50% chance of success or failure
+
+    if (isSuccess) {
+        displayResponse('This request was successful!');
+    } else {
+        displayResponse('404 Error - Resource not found', true);
+    }
+});
+
+function displayResponse(message, isError = false) {
+    const responseElement = document.getElementById('apiResponse');
+    responseElement.textContent = message;
+    responseElement.style.color = isError ? 'red' : 'green';
+}
+    </script>
+</body>
+</html>
+
